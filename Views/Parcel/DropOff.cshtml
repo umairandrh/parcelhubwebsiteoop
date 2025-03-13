@@ -1,0 +1,122 @@
+﻿@{
+    ViewData["Title"] = "Drop Off Parcel";
+}
+<div class="container drop-off-page">
+    <h2 class="page-title">Drop Off Parcel 📦</h2>
+
+    <form id="dropOffForm">
+        <div class="input-group">
+            <label for="trackingNumber">Tracking Number:</label>
+            <input type="text" id="trackingNumber" name="trackingNumber" required>
+        </div>
+
+        <div class="input-group">
+            <label for="sender">Sender Name:</label>
+            <input type="text" id="sender" name="sender" required>
+        </div>
+
+        <div class="input-group">
+            <label for="receiver">Receiver Name:</label>
+            <input type="text" id="receiver" name="receiver" required>
+        </div>
+
+        <div class="input-group">
+            <label for="weight">Parcel Weight (kg):</label>
+            <input type="number" id="weight" name="weight" required>
+        </div>
+
+        <div class="input-group">
+            <label for="size">Parcel Size:</label>
+            <select id="size" name="size" required>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Big">Big</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="company">Courier Company:</label>
+            <select id="company" name="company" required>
+                <option value="DHL">DHL</option>
+                <option value="J&T">J&T</option>
+                <option value="Shopee Express">Shopee Express</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="location">Drop-Off Location:</label>
+            <select id="location" name="location" required>
+                <option value="Pos Laju UTP">Pos Laju UTP</option>
+                <option value="Parcel Hub UTP">Parcel Hub UTP</option>
+            </select>
+        </div>
+
+        <button type="button" class="check-btn" onclick="checkDropOffDetails()">Check Status</button>
+    </form>
+
+    <!-- ✅ Parcel Status Display -->
+    <div id="dropOffDetailsSection" class="parcel-details-box" style="display: none;">
+        <h3>📜 Parcel Status: <span id="dropOffStatus"></span></h3>
+        <p><strong>Sender:</strong> <span id="detailSender"></span></p>
+        <p><strong>Receiver:</strong> <span id="detailReceiver"></span></p>
+        <p><strong>Weight:</strong> <span id="detailWeight"></span> kg</p>
+        <p><strong>Size:</strong> <span id="detailSize"></span></p>
+        <p><strong>Courier Company:</strong> <span id="detailCompany"></span></p>
+        <p><strong>Drop-Off Location:</strong> <span id="detailLocation"></span></p>
+
+        <div class="confirmation-box">
+            <p>✅ Confirm Drop Off?</p>
+            <div class="button-group">
+                <button class="confirm-btn" onclick="confirmDropOff(true)">Yes</button>
+                <button class="cancel-btn" onclick="confirmDropOff(false)">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ✅ JavaScript for Drop Off Process -->
+<script>
+            function checkDropOffDetails() {
+                var trackingNumber = document.getElementById("trackingNumber").value;
+                var sender = document.getElementById("sender").value;
+                var receiver = document.getElementById("receiver").value;
+                var weight = document.getElementById("weight").value;
+                var size = document.getElementById("size").value;
+                var company = document.getElementById("company").value;
+                var location = document.getElementById("location").value;
+
+    // Display details
+            document.getElementById("dropOffStatus").innerText = "In Processing";
+            document.getElementById("detailSender").innerText = sender;
+            document.getElementById("detailReceiver").innerText = receiver;
+            document.getElementById("detailWeight").innerText = weight;
+            document.getElementById("detailSize").innerText = size;
+            document.getElementById("detailCompany").innerText = company;
+            document.getElementById("detailLocation").innerText = location;
+            document.getElementById("dropOffDetailsSection").style.display = "block";
+        }
+
+        function confirmDropOff(isConfirmed) {
+            if (isConfirmed) {
+                var trackingNumber = document.getElementById("trackingNumber").value;
+                var sender = document.getElementById("sender").value;
+                var receiver = document.getElementById("receiver").value;
+                var weight = document.getElementById("weight").value;
+                var size = document.getElementById("size").value;
+                var company = document.getElementById("company").value;
+                var location = document.getElementById("location").value;
+
+                var url = "/Parcel/DropOffSuccess?tracking=" + encodeURIComponent(trackingNumber) +
+                    "&sender=" + encodeURIComponent(sender) +
+                    "&receiver=" + encodeURIComponent(receiver) +
+                    "&weight=" + encodeURIComponent(weight) +
+                    "&size=" + encodeURIComponent(size) +
+                    "&company=" + encodeURIComponent(company) +
+                    "&location=" + encodeURIComponent(location);
+
+                window.location.href = url;
+            } else {
+                alert("Drop off cancelled.");
+            }
+        }
+</script>

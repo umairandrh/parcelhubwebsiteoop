@@ -1,0 +1,23 @@
+﻿@model Parcelhubweb.Models.ParcelCalculatorModel
+
+<h2>Parcel Calculator</h2>
+
+<form method="post">
+    <label>Weight (kg):</label>
+    <input type="number" name="Weight" step="0.1" required />
+
+    <label>Size:</label>
+    <select name="Size">
+        <option value="Small">Small</option>
+        <option value="Medium">Medium</option>
+        <option value="Large">Large</option>
+        <option value="ExtraLarge">Extra Large</option>
+    </select>
+
+    <button type="submit">Calculate Price</button>
+</form>
+
+@if (Model != null)
+{
+    <h3>Calculated Price: RM @Model.Price</h3>
+}

@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Pick Up Success";
+    var tracking = ViewBag.TrackingNumber ?? "No tracking number found.";
+}
+<div class="container success-page">
+    <h2>Parcel Picked Up Successfully! 🎉</h2>
+
+    <div class="success-details">
+        <h3>Tracking Number:</h3>
+        <p class="tracking-number">@tracking</p>
+        <p>The parcel has been successfully picked up.</p>
+    </div>
+
+    <a href="@Url.Action("Pickup", "Parcel")" class="btn">Back to Pick Up</a>
+</div>

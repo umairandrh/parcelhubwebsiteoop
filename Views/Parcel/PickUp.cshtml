@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Pick Up Parcel";
+}
+<div class="container pick-up-page">
+    <h2>Pick Up Parcel</h2>
+
+    <form id="pickupForm" method="post">
+        <label for="trackingNumber">Enter Tracking Number:</label>
+        <input type="text" id="trackingNumber" name="trackingNumber" required>
+        <button type="button" onclick="checkParcelStatus()">Check Status</button>
+    </form>
+
+    <!-- Parcel Status Display -->
+    <div id="parcelStatusSection" style="display: none;">
+        <h3>Parcel Status: <span id="parcelStatus"></span></h3>
+
+        <div id="pickupConfirmation" style="display: none;">
+            <p>Parcel pickup successful?</p>
+            <div class="button-group">
+                <button onclick="confirmPickup(true)">Yes</button>
+                <button onclick="confirmPickup(false)">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ✅ JavaScript for Full Pickup Process -->
+<script>
+    function checkParcelStatus() {
+        var trackingNumber = document.getElementById("trackingNumber").value;
+
+        if (!trackingNumber.trim()) {
+            alert("Please enter a tracking number.");
+            return;
+        }
+
+        // Simulating checking parcel status (Replace this with an AJAX call if needed)
+        var statuses = ["On the way", "In bound"];
+        var status = statuses[Math.floor(Math.random() * statuses.length)];
+
+        // Display the parcel status
+        document.getElementById("parcelStatus").innerText = status;
+        document.getElementById("parcelStatusSection").style.display = "block";
+
+        // If the parcel is "In bound", show pickup confirmation
+        if (status === "In bound") {
+            document.getElementById("pickupConfirmation").style.display = "block";
+        } else {
+            document.getElementById("pickupConfirmation").style.display = "none";
+        }
+    }
+
+    function confirmPickup(isConfirmed) {
+        var trackingNumber = document.getElementById("trackingNumber").value;
+
+        if (isConfirmed) {
+            // Redirect to success page with tracking details
+            var url = "PickUpSuccess?tracking=" + encodeURIComponent(trackingNumber);
+            window.location.href = url;
+        } else {
+            alert("OK");
+        }
+    }
+</script>

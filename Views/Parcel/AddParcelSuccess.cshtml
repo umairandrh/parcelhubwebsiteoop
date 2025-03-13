@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Parcel Added Successfully";
+    var tracking = ViewBag.TrackingNumber ?? "Unknown";
+    var sender = ViewBag.Sender ?? "Unknown";
+    var receiver = ViewBag.Receiver ?? "Unknown";
+    var company = ViewBag.Company ?? "Unknown";
+}
+<div class="container success-page">
+    <h2>🎉 Parcel Added Successfully!</h2>
+
+    <div class="success-box">
+        <h3>📦 Parcel Details</h3>
+        <p><strong>Tracking Number:</strong> <span>@tracking</span></p>
+        <p><strong>Sender:</strong> <span>@sender</span></p>
+        <p><strong>Receiver:</strong> <span>@receiver</span></p>
+        <p><strong>Courier Company:</strong> <span>@company</span></p>
+    </div>
+
+    <a href="@Url.Action("AddParcel", "Parcel")" class="back-btn">➜ Back to Add Parcel</a>
+</div>

@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Drop Off Success";
+}
+
+<div class="container success-page">
+    <h2>🎉 Parcel Dropped Off Successfully!</h2>
+
+    <div class="success-details">
+        <h3>Tracking Number: <span class="tracking-number">@ViewBag.TrackingNumber</span></h3>
+        <p><strong>Sender:</strong> @ViewBag.Sender</p>
+        <p><strong>Receiver:</strong> @ViewBag.Receiver</p>
+        <p><strong>Weight:</strong> @ViewBag.Weight kg</p>
+        <p><strong>Size:</strong> @ViewBag.Size</p>
+        <p><strong>Courier Company:</strong> @ViewBag.Company</p>
+        <p><strong>Drop-Off Location:</strong> @ViewBag.Location</p>
+    </div>
+
+    <a href="@Url.Action("DropOff", "Parcel")" class="btn btn-primary">🔙 Back to Drop Off</a>
+</div>

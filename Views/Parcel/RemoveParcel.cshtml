@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Remove Parcel (Operator)";
+}
+<div class="container remove-parcel-page">
+    <h2>Remove Parcel (Operator)</h2>
+
+    <form id="removeParcelForm" action="#" method="post">
+        <label for="trackingNumber">Enter Tracking Number to Remove:</label>
+        <input type="text" id="trackingNumber" name="trackingNumber" required>
+        <button type="button" onclick="removeParcel()">Remove Parcel</button>
+    </form>
+
+    <!-- Confirmation Message -->
+    <div id="confirmationMessage" style="display: none; margin-top: 20px; padding: 12px; background: #ffe6f2; color: #a60059; border-left: 5px solid #ff3385; border-radius: 8px;">
+        <h3>Parcel Removed Successfully!</h3>
+        <p><strong>Tracking Number:</strong> <span id="removedTracking"></span></p>
+    </div>
+</div>
+
+<!-- ✅ JavaScript for Parcel Removal -->
+<script>
+    function removeParcel() {
+        var trackingNumber = document.getElementById("trackingNumber").value;
+
+        if (!trackingNumber.trim()) {
+            alert("Please enter a tracking number to remove.");
+            return;
+        }
+
+        // Simulating parcel removal (Replace with an AJAX call if needed)
+        document.getElementById("removedTracking").innerText = trackingNumber;
+        document.getElementById("confirmationMessage").style.display = "block";
+
+        alert("Parcel with tracking number " + trackingNumber + " has been removed.");
+
+        // Reset form fields
+        document.getElementById("removeParcelForm").reset();
+    }
+</script>

@@ -1,0 +1,1021 @@
+﻿/* 🎀 Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap');
+
+/* 🌸 Root Colors & Gradient */
+:root {
+    --primary-color: #ff9bb3; /* Soft Pastel Pink */
+    --secondary-color: #ff66a3; /* Vibrant Pink */
+    --accent-color: #e60073; /* Darker Pink */
+    --light-bg: #fff5fa; /* Lightest Pink */
+    --white: #ffffff;
+    --shadow-color: rgba(255, 105, 180, 0.2);
+    --glass-blur: rgba(255, 255, 255, 0.5);
+    --gradient-bg: linear-gradient(135deg, #ffb6c1, #ff69b4, #ff1493, #ff66a3);
+}
+
+/* 🌸 Ensure the Background Fills the Entire Page */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    background: var(--gradient-bg); /* Apply gradient globally */
+    display:flex;
+    flex-direction:column;
+
+}
+
+/* 🌸 Ensure Content Stretches to Full Height */
+.container {
+    flex: 1;
+}
+
+/* 🎀 General Styling */
+body {
+    color: var(--primary-color);
+}
+
+/* ✨ Enhanced Navbar */
+.navbar {
+    background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+    padding: 15px 30px;
+    box-shadow: 0px 6px 18px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.4s ease-in-out;
+    border-radius: 15px;
+}
+
+/* 🎀 Navbar Brand */
+.navbar-brand {
+    color: var(--white) !important;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+    .navbar-brand:hover {
+        transform: scale(1.1);
+        color: var(--light-bg) !important;
+    }
+
+/* ✨ Navbar Links */
+.navbar .nav-link {
+    color: var(--white) !important;
+    font-weight: bold;
+    padding: 12px 20px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    border-radius: 8px;
+}
+
+    /* Underline Hover Effect */
+    .navbar .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        width: 0%;
+        height: 2px;
+        background-color: var(--white);
+        transition: all 0.3s ease-in-out;
+        transform: translateX(-50%);
+    }
+
+    .navbar .nav-link:hover::after {
+        width: 80%;
+    }
+
+    .navbar .nav-link:hover {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        color: var(--white) !important;
+    }
+
+/* 🌈 Navbar Toggle (Mobile Menu) */
+.navbar-toggler {
+    border: none !important;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 10px 14px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+    .navbar-toggler:hover {
+        background: rgba(255, 255, 255, 0.5);
+    }
+
+/* ✨ Floating Dropdown Menu */
+.navbar .dropdown-menu {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px var(--shadow-color);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Show dropdown smoothly */
+.navbar .dropdown:hover .dropdown-menu {
+    transform: translateY(0px);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 💖 Dropdown Items */
+.navbar .dropdown-item {
+    color: var(--secondary-color);
+    padding: 12px 18px;
+    transition: all 0.3s ease-in-out;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+    .navbar .dropdown-item:hover {
+        background: var(--light-bg);
+        color: var(--accent-color);
+        box-shadow: 0px 4px 10px var(--shadow-color);
+    }
+
+/* ✨ Soft Glow Animation */
+@keyframes glowing {
+    0% {
+        box-shadow: 0 0 8px var(--primary-color);
+    }
+
+    50% {
+        box-shadow: 0 0 20px var(--secondary-color);
+    }
+
+    100% {
+        box-shadow: 0 0 8px var(--primary-color);
+    }
+}
+
+/* 🌟 Soft Glow Hover Effect */
+.glow-hover:hover {
+    animation: glowing 1.5s infinite;
+}
+
+
+/* 🎀 Add Parcel Page */
+:root {
+    --gradient-bg: linear-gradient(135deg, #ff94c2, #ff6b92); /* Light pink to dark pink */
+    --shadow-color: rgba(0, 0, 0, 0.2); /* Shadow color */
+}
+
+.add-parcel-page {
+    width: 50%;
+    margin: 80px auto;
+    padding: 15px;
+    background: var(--gradient-bg);
+    box-shadow: 0px 10px 25px var(--shadow-color);
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Fade-In Effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 🌈 Cute Form */
+.add-parcel-page form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* 🎀 Form Labels */
+.add-parcel-page label {
+    font-weight: bold;
+    color: var(--white);
+    font-size: 15px;
+    text-align: left;
+    width: 50%;
+    max-width: 420px;
+}
+
+/* ✨ Input & Select Fields */
+.add-parcel-page input,
+.add-parcel-page select {
+    width: 100%;
+    max-width: 420px;
+    padding: 14px;
+    font-size: 18px;
+    border: 2px solid var(--white);
+    border-radius: 16px;
+    background: var(--white);
+    color: #333;
+    transition: 0.3s ease-in-out;
+}
+
+    /* Input Focus Effect */
+    .add-parcel-page input:focus,
+    .add-parcel-page select:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0px 0px 12px rgba(255, 51, 133, 0.3);
+    }
+
+/* 🎀 Button */
+.add-parcel-page button {
+    width: 100%;
+    max-width: 420px;
+    padding: 14px;
+    background: var(--white);
+    color: var(--accent-color);
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 5px 15px var(--shadow-color);
+}
+
+    /* Button Hover Effect */
+    .add-parcel-page button:hover {
+        background: var(--light-bg);
+        transform: scale(1.05);
+        box-shadow: 0px 8px 20px var(--shadow-color);
+    }
+
+/* 📱 Mobile Responsive */
+@media (max-width: 768px) {
+    .add-parcel-page {
+        width: 90%;
+        padding: 25px;
+    }
+}
+
+/* 🎀 Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap');
+
+/* 🌸 Root Colors & Gradient */
+:root {
+    --primary-color: #ff66a3; /* Soft Pastel Pink */
+    --secondary-color: #ff3385; /* Vibrant Pink */
+    --accent-color: #e60073; /* Darker Pink */
+    --light-bg: #fff5fa; /* Lightest Pink */
+    --white: #ffffff;
+    --shadow-color: rgba(255, 105, 180, 0.2);
+    --gradient-bg: linear-gradient(to bottom, #ffffff, #ffe6f2); /* White to Light Pink */
+}
+
+/* 🎀 General Styling */
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: var(--gradient-bg); /* SAME as Add Parcel */
+    color: var(--primary-color);
+}
+
+/* 🎀 Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap');
+
+/* 🌸 Root Colors & Gradient */
+:root {
+    --primary-color: #ff66a3; /* Soft Pastel Pink */
+    --secondary-color: #ff3385; /* Vibrant Pink */
+    --accent-color: #e60073; /* Darker Pink */
+    --light-bg: #fff5fa; /* Lightest Pink */
+    --white: #ffffff;
+    --shadow-color: rgba(255, 105, 180, 0.2);
+    --gradient-bg: linear-gradient(to bottom, #ffffff, #ffe6f2); /* White to Light Pink */
+}
+
+
+/* 🌸 Remove Parcel Page */
+.remove-parcel-page {
+    width: 50%;
+    margin: 50px auto;
+    padding: 30px;
+    background: var(--white); /* SAME as Add Parcel */
+    box-shadow: 0px 10px 25px var(--shadow-color);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* 🎀 Fade-In Effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 🌈 Cute Form */
+.remove-parcel-page form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* 🎀 Form Labels */
+.remove-parcel-page label {
+    font-weight: bold;
+    color: var(--secondary-color); /* SAME as Add Parcel */
+    font-size: 18px;
+    text-align: left;
+    width: 100%;
+    max-width: 420px;
+}
+
+/* ✨ Input Field */
+.remove-parcel-page input {
+    width: 100%;
+    max-width: 420px;
+    padding: 14px;
+    font-size: 18px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 16px;
+    background: var(--white);
+    color: #333;
+    transition: 0.3s ease-in-out;
+}
+
+    /* 💡 Input Focus Effect */
+    .remove-parcel-page input:focus {
+        outline: none;
+        border-color: var(--accent-color);
+        box-shadow: 0px 0px 12px rgba(255, 51, 133, 0.3);
+    }
+
+/* 🎀 Remove Button */
+.remove-parcel-page button {
+    width: 100%;
+    max-width: 420px;
+    padding: 14px;
+    background: var(--white);
+    color: var(--accent-color);
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 5px 15px var(--shadow-color);
+}
+
+    /* 💖 Button Hover Effect */
+    .remove-parcel-page button:hover {
+        background: var(--light-bg);
+        transform: scale(1.05);
+        box-shadow: 0px 8px 20px var(--shadow-color);
+    }
+
+/* 📦 Confirmation Message */
+.remove-parcel-page #confirmationMessage {
+    margin-top: 20px;
+    padding: 16px;
+    background: var(--light-bg);
+    color: var(--accent-color); /* SAME as Add Parcel */
+    border-left: 6px solid var(--secondary-color);
+    border-radius: 16px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+/* 📱 Mobile Responsive */
+@media (max-width: 768px) {
+    .remove-parcel-page {
+        width: 90%;
+        padding: 25px;
+    }
+
+        .remove-parcel-page input,
+        .remove-parcel-page button {
+            width: 100%;
+        }
+
+}/* Styles for Drop Off Parcel Page */
+.drop-off-page {
+    width: 70%; /* ✅ Matches Add Parcel */
+    max-width: 500px; /* ✅ Smaller form box */
+    margin: 80px auto;
+    padding: 20px;
+    background: var(--gradient-bg); /* ✅ SAME background as add-parcel */
+    box-shadow: 0px 8px 20px var(--shadow-color);
+    border-radius: 15px; /* ✅ Smaller rounded corners */
+    backdrop-filter: blur(10px);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+    /* ✅ Centering Form */
+    .drop-off-page form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    /* ✅ Centering Labels */
+    .drop-off-page label {
+        font-weight: bold;
+        color: #cc6699; /* Soft Pink */
+        margin-bottom: 5px;
+        text-align: center; /* Centers text */
+        width: 100%;
+    }
+    /* ✅ Centering Input Fields & Select Dropdown */
+    .drop-off-page input,
+    .drop-off-page select {
+        width: 50%; /* Adjust width as needed */
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #ffb3d9;
+        border-radius: 8px;
+        background: #fff0f5; /* Light Pink Input Background */
+        color: #333;
+        text-align: center; /* Ensures text inside input is centered */
+        display: block;
+        margin: 0 auto; /* ✅ Ensures the input fields are centered */
+    }
+
+    /* ✅ Centering Button */
+    .drop-off-page button {
+        width: 100%;
+        max-width: 420px;
+        padding: 14px;
+        background: var(--white);
+        color: var(--accent-color);
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        border-radius: 16px;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+        box-shadow: 0px 5px 15px var(--shadow-color);
+    }
+
+        /* Hover Effect */
+        .drop-off-page button:hover {
+            background: var(--light-bg);
+            transform: scale(1.05);
+            box-shadow: 0px 8px 20px var(--shadow-color);
+        }
+
+    /* ✅ Tracking Number Display */
+    .drop-off-page #trackingSection {
+        margin-top: 20px;
+        padding: 12px;
+        background: #ffe6f2;
+        color: #a60059;
+        border-left: 5px solid #ff3385;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+/* ✅ Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .drop-off-page {
+        width: 80%;
+    }
+
+        .drop-off-page input,
+        .drop-off-page select,
+        .drop-off-page button {
+            width: 90%; /* Makes inputs and buttons full-width on mobile */
+        }
+}
+
+/* Styles for Pick Up Parcel Page */
+.pick-up-page {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    text-align: center;
+}
+
+    /* Form Styling */
+    .pick-up-page form {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centers everything */
+        gap: 15px;
+    }
+
+    /* ✅ Centering Labels */
+    .pick-up-page label {
+        font-weight: bold;
+        color: #cc6699; /* Soft Pink */
+        margin-bottom: 5px;
+        text-align: center; /* ✅ Centers text */
+        width: 100%;
+    }
+
+    /* Input Fields */
+    .pick-up-page input {
+        width: 80%;
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #ffb3d9;
+        border-radius: 8px;
+        background: #fff0f5; /* Light Pink Input Background */
+        color: #333;
+    }
+
+    /* Button Styling */
+    .pick-up-page button {
+        width: 100%;
+        max-width: 420px;
+        padding: 14px;
+        background: var(--white);
+        color: var(--accent-color);
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        border-radius: 16px;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+        box-shadow: 0px 5px 15px var(--shadow-color);
+    }
+
+        .pick-up-page button:hover {
+            background: var(--light-bg);
+            transform: scale(1.05);
+            box-shadow: 0px 8px 20px var(--shadow-color);
+        }
+
+    /* Parcel Status Display */
+    .pick-up-page #parcelStatusSection {
+        margin-top: 20px;
+        padding: 12px;
+        background: #ffe6f2;
+        color: #a60059;
+        border-left: 5px solid #ff3385;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    /* Confirmation Buttons */
+    .pick-up-page .button-group {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+        .pick-up-page .button-group button {
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+            /* Yes Button */
+            .pick-up-page .button-group button:first-child {
+                background: #28a745;
+                color: white;
+            }
+
+                .pick-up-page .button-group button:first-child:hover {
+                    background: #1e7e34;
+                }
+            /* No Button */
+            .pick-up-page .button-group button:last-child {
+                background: #dc3545;
+                color: white;
+            }
+
+                .pick-up-page .button-group button:last-child:hover {
+                    background: #c82333;
+                }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pick-up-page {
+        width: 80%;
+    }
+
+        .pick-up-page input,
+        .pick-up-page button {
+            width: 90%; /* Makes inputs and buttons full-width */
+        }
+}
+
+/* Pick Up Success Page Styling */
+.success-page {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.success-details {
+    margin-top: 20px;
+    padding: 15px;
+    background: #ffe6f2;
+    color: #a60059;
+    border-left: 5px solid #ff3385;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.tracking-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: green;
+    margin-top: 10px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #ff66a3;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+    .btn:hover {
+        background: #e60073;
+    }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .success-page {
+        width: 80%;
+    }
+}
+
+/* ✅ Centered Success Container */
+.drop-off-success-page {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    text-align: center;
+}
+
+    /* ✅ Success Message */
+    .drop-off-success-page h2 {
+        color: #e60073; /* Dark Pink */
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+/* 📦 Add Parcel Page Styling */
+.add-parcel-page {
+    width: 50%;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+    /* 🌟 Centering the Form */
+    .add-parcel-page form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* 🌟 Page Title */
+    .add-parcel-page h2 {
+        color: #e60073;
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+/* 📜 Input Groups */
+.input-group {
+    width: 100%;
+    max-width: 500px; /* Ensures uniform input box width */
+    margin-bottom: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Adds gap between label and input */
+}
+
+    /* 🌟 Label Styling */
+    .input-group label {
+        font-weight: bold;
+        color: #cc6699;
+        font-size: 16px;
+    }
+
+    /* ✏️ Centered Input & Select Fields */
+    .input-group input,
+    .input-group select {
+        width: 100%;
+        padding: 12px;
+        font-size: 18px;
+        border: 2px solid #ffb3d9;
+        border-radius: 10px;
+        background: #fff0f5;
+        color: #333;
+        transition: 0.3s ease-in-out;
+        text-align: left;
+    }
+
+        /* ✨ Input Hover & Focus Effects */
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #ff3385;
+            box-shadow: 0px 0px 8px rgba(255, 102, 163, 0.5);
+        }
+
+/* 🔘 Styled Check Details Button */
+.check-btn {
+    width: 100%;
+    max-width: 500px;
+    padding: 14px;
+    background: linear-gradient(135deg, #ff66a3, #e60073);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+    .check-btn:hover {
+        background: linear-gradient(135deg, #e60073, #b3005c);
+    }
+/* 📦 Parcel Details Section - Initially Hidden */
+.parcel-details-box {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background: #ffe6f2;
+    color: #a60059;
+    border-left: 5px solid #ff3385;
+    border-radius: 10px;
+    text-align: left;
+    width: 100%;
+    max-width: 500px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* ✅ Confirmation Box */
+.confirmation-box {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* 🔘 Confirmation Buttons */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.confirm-btn, .cancel-btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.confirm-btn {
+    background: #28a745;
+    color: white;
+}
+
+    .confirm-btn:hover {
+        background: #218838;
+    }
+
+.cancel-btn {
+    background: #dc3545;
+    color: white;
+}
+
+    .cancel-btn:hover {
+        background: #c82333;
+    }
+
+/* 🎥 Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+    .add-parcel-page {
+        width: 90%;
+    }
+
+    .parcel-details-box {
+        padding: 15px;
+    }
+
+    .check-btn {
+        width: 100%;
+    }
+}
+
+/* ✅ Success Page Styling */
+.success-page {
+    width: 50%;
+    margin: 60px auto;
+    padding: 40px;
+    background: white;
+    box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.15);
+    border-radius: 18px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+    /* 🎉 Success Header */
+    .success-page h2 {
+        font-size: 30px;
+        font-weight: bold;
+        color: #28a745;
+        margin-bottom: 20px;
+    }
+
+/* 📦 Parcel Details Box */
+.success-box {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left;
+    margin-top: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+    .success-box h3 {
+        color: #ff3385;
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .success-box p {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #555;
+    }
+
+        .success-box p span {
+            font-weight: bold;
+            color: #333;
+        }
+
+/* ✅ Large Button for Navigation */
+.success-page .back-btn {
+    width: 100%;
+    max-width: 300px;
+    background: #28a745;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    display: block;
+    margin: 25px auto 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+    .success-page .back-btn:hover {
+        background: #218838;
+    }
+
+/* 🎥 Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+    .success-page {
+        width: 80%;
+        padding: 30px;
+    }
+}
+
+/* ParcelCalculator.css */
+body {
+    background-color: #f8f0f2; /* Light pink background */
+}
+
+h2 {
+    color: #ff69b4; /* Hot pink color for the header */
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #d5006d; /* Medium pink for labels */
+}
+
+input[type="number"],
+select {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #d5006d; /* Border matching label color */
+    border-radius: 5px;
+    width: 200px;
+}
+
+button {
+    width: 50%;
+    max-width: 250px;
+    padding: 14px;
+    background: var(--white);
+    color: var(--accent-color);
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 5px 15px var(--shadow-color);
+}
+
+    button:hover {
+        background: var(--light-bg);
+        transform: scale(1.05);
+        box-shadow: 0px 8px 20px var(--shadow-color);
+    }
+
+h3 {
+    color: #d5006d; /* Medium pink for calculated price */
+    margin-top: 20px;
+}

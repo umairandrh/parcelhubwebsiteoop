@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Add Parcel (Operator)";
+}
+<div class="container add-parcel-page">
+    <h2 class="page-title">📦 Add Parcel (Operator)</h2>
+
+    <form id="addParcelForm">
+        <div class="input-group">
+            <label for="trackingNumber"> Tracking Number:</label>
+            <input type="text" id="trackingNumber" name="trackingNumber" required>
+        </div>
+
+        <div class="input-group">
+            <label for="sender"> Sender Name:</label>
+            <input type="text" id="sender" name="sender" required>
+        </div>
+
+        <div class="input-group">
+            <label for="receiver"> Receiver Name:</label>
+            <input type="text" id="receiver" name="receiver" required>
+        </div>
+
+        <div class="input-group">
+            <label for="company"> Courier Company:</label>
+            <select id="company" name="company" required>
+                <option value="DHL">DHL</option>
+                <option value="J&T">J&T</option>
+                <option value="Shopee Express">Shopee Express</option>
+            </select>
+        </div>
+
+        <button type="button" class="check-btn" onclick="checkParcelDetails()">Check Details</button>
+    </form>
+
+    <!-- ✅ Parcel Details Display -->
+    <div id="parcelDetailsSection" class="parcel-details-box">
+        <h3>📜 Parcel Details</h3>
+        <p><strong>Tracking Number:</strong> <span id="detailTrackingNumber"></span></p>
+        <p><strong>Sender:</strong> <span id="detailSender"></span></p>
+        <p><strong>Receiver:</strong> <span id="detailReceiver"></span></p>
+        <p><strong>Courier Company:</strong> <span id="detailCompany"></span></p>
+
+        <div class="confirmation-box">
+            <p>✅ Confirm Parcel Addition?</p>
+            <div class="button-group">
+                <button class="confirm-btn" onclick="confirmParcelAddition(true)">Yes</button>
+                <button class="cancel-btn" onclick="confirmParcelAddition(false)">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ✅ JavaScript for Parcel Addition Process -->
+<script>
+    function checkParcelDetails() {
+        var trackingNumber = document.getElementById("trackingNumber").value;
+        var sender = document.getElementById("sender").value;
+        var receiver = document.getElementById("receiver").value;
+        var company = document.getElementById("company").value;
+
+        // ✅ Display parcel details dynamically
+        document.getElementById("detailTrackingNumber").innerText = trackingNumber;
+        document.getElementById("detailSender").innerText = sender;
+        document.getElementById("detailReceiver").innerText = receiver;
+        document.getElementById("detailCompany").innerText = company;
+
+        // ✅ Show the Parcel Details Section
+        document.getElementById("parcelDetailsSection").style.display = "block";
+    }
+
+    function confirmParcelAddition(isConfirmed) {
+        if (isConfirmed) {
+            var trackingNumber = document.getElementById("trackingNumber").value;
+            var sender = document.getElementById("sender").value;
+            var receiver = document.getElementById("receiver").value;
+            var company = document.getElementById("company").value;
+
+            // ✅ Redirect to Success Page with all details
+            var url = "/Parcel/AddParcelSuccess?tracking=" + encodeURIComponent(trackingNumber) +
+                "&sender=" + encodeURIComponent(sender) +
+                "&receiver=" + encodeURIComponent(receiver) +
+                "&company=" + encodeURIComponent(company);
+
+            window.location.href = url;
+        } else {
+            alert("❌ Parcel addition cancelled.");
+        }
+    }
+</script>
